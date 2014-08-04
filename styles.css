@@ -1,0 +1,136 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	min-width: 500px;
+	font-family: Inconsolata, sans-serif;
+}
+
+#container {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+#nav {
+	height: 300px;
+	width: 150px;
+	margin-left: 50px;
+	position: fixed;
+}
+	#photo {
+		height: 100px;
+		margin-bottom: 20px;
+	}
+		#me {
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+		}
+
+	#tags {}
+		ul {
+			margin: 0;
+			list-style-type: none;
+			padding: 0;
+		}
+			li {
+				height: 25px;
+				margin-bottom: 10px;
+				font-size: 20px;
+				text-align: center;
+				color: #666;
+			}
+
+			li:hover {
+				font-weight: bold;
+				color: #900;
+				cursor: pointer;
+			}
+
+	#links {
+		height: 100px;
+		display: table;
+		margin-left: auto;
+		margin-right: auto;
+	}
+		a {
+			float: left;
+			margin-left: 5px;
+		}
+
+		.linkImg { background-size: 100%; background-repeat: no-repeat; }
+
+		#email { background-image: url('images/email.png'); }
+		#youtube { background-image: url('images/youtube.png'); }
+		#linkedin { background-image: url('images/linkedin.png'); }
+		#github { background-image: url('images/github.png'); }
+
+		#email:hover { background-image: url('images/email-hover.png'); }
+		#youtube:hover { background-image: url('images/youtube-hover.png'); }
+		#linkedin:hover { background-image: url('images/linkedin-hover.png'); }
+		#github:hover { background-image: url('images/github-hover.png'); }
+
+#projects {
+	width: 80%;
+}
+	.col {
+		width: 20%;
+		height: 100%;
+		background-color: transparent;
+		float: left;
+	}
+
+	.tile {
+		padding-top: 2.5%;
+		background-color: #ddd;
+		margin-bottom: 10px;
+		border-radius: 5px;
+	}
+		.tile .title {
+			text-align: center;
+			color: #666;
+		}
+		.tile .img {
+			line-height: 0;
+		}
+		.tile img {
+			width: 90%;
+			margin: 5%;
+		}
+
+#popup {
+	height: 100px;
+	width: 100px;
+	background-color: #ddd;
+	border-radius: 10px;
+	position: fixed;
+	z-index: 50;
+	display: none;
+}
+	#popup .title {
+		margin: 2% 0;
+		text-align: center;
+		font-size: 24px;
+		color: #666;
+	}
+	#popup .imgs {
+		line-height: 0;
+		width: 90%;
+		margin: 0 5%;
+		background-color: transparent;
+	}
+	#popup .txt {
+		width: 90%;
+		margin: 0 5%;
+	}
+
+#background {
+	margin-top: -50px;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	z-index: 49;
+	background-color: black;
+	opacity: 0.75;
+	display: none;
+}

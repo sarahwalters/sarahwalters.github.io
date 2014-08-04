@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+		<title>Sarah Walters</title>
+		<link rel="stylesheet" href="jquery-ui.min.css">
+		<link rel='stylesheet' type='text/css' href='styles.css'>
+		<link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+		<script src='http://code.jquery.com/jquery-1.11.0.min.js'></script>
+		<script src="jquery-ui.min.js"></script>
+		<script src="jsrender.js" type="text/javascript"></script>
+		<script src='utils.js'></script>
+		<script src='tiles.js'></script>
+
+		<script>
+			$(document).ready(function() { 
+				UTILS.sizing.landscapeResize();
+				UTILS.columns.fill();
+				CONTENT.makeTiles();
+				UTILS.dialog.initialize();
+			 });
+			$(window).resize(function() { 
+				UTILS.sizing.landscapeResize();
+				CONTENT.makeTiles();
+				UTILS.dialog.initialize();
+			});
+		</script>
+	</head>
+
+<!-- LAYOUT -->
+	<body>
+		<div id='background'></div>
+		<div id='popup'></div>
+		<!-- main view -->
+		<div id='container'>
+			<!-- nav -->
+			<div id='nav'>
+				<div id='photo'>
+					<img id='me' src='images/me.png'>
+				</div>
+				<div id='tags'>
+					<ul>
+						<li>Design</li>
+						<li>Software</li>
+						<!--<li>Physics</li>-->
+						<li>Music</li>
+					</ul>
+				</div>
+				<div id='links'>
+					<a href='http://github.com/swalters4925' target='_blank'><div class='linkImg' id='github'></div></a>
+					<a href='http://www.linkedin.com/pub/sarah-walters/78/352/b46/' target='_blank'><div class='linkImg' id='linkedin'></div></a>
+					<!--<a href='http://www.linkedin.com/pub/sarah-walters/78/352/b46/' target='_blank'><div class='linkImg' id='youtube'></div></a>-->
+					<a href='mailto:swalters4925@gmail.com'><div class='linkImg' id='email'></div></a>
+				</div>
+			</div>
+
+			<!-- columns -->
+			<div id='projects'></div>
+		</div>
+	</body>
+
+<!-- TEMPLATES -->
+	<script id="tileTemplate" type="text/x-jsrender">
+        <div class='tile' id='tile-{{:id}}'>
+        	<div class='title'>{{:title}}</div>
+            <div class='img'><img src='{{:img}}'></div>
+        </div>
+	</script>
+
+	<script id="popupTemplate" type="text/x-jsrender">
+		<div class='title'>{{:title}}</div>
+		<div class='imgs'></div>
+		<div class='txt'><p>{{:txt}}</p></div>
+	</script>
+
+</html>
