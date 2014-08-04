@@ -15,7 +15,8 @@ var UTILS = {
 
 		initialize: function() {
 			if (UTILS.dialog.tile != null) {
-				UTILS.dialog.resize();
+				UTILS.dialog.sizeFrame();
+				UTILS.dialog.addImgs();
 			}
 
 			$('.tile').on('click', function(event) {
@@ -23,7 +24,8 @@ var UTILS = {
 
 				// get tile upon which click occurred
 				var tileId = $(event.target).closest('.tile')[0].id;
-				var tileIndex = tileId.substr(tileId.length-1, 1);
+				var split = tileId.indexOf('-')+1;
+				var tileIndex = tileId.substr(split, tileId.length-split);
 				UTILS.dialog.tile = CONTENT.tiles[tileIndex];
 				var tRender = $('#popupTemplate').render(UTILS.dialog.tile);
  
@@ -63,7 +65,6 @@ var UTILS = {
 				$('#popup .imgs').html('');
 				var allImgs = [UTILS.dialog.tile.img].concat(UTILS.dialog.tile.extraImgs);
 				UTILS.dialog.imgsHeight = 0.5*UTILS.dialog.fullHeight;
-				console.log('IMGS HEIGHT: ' + UTILS.dialog.imgsHeight)
 				UTILS.dialog.imgsWidth = 0.9*UTILS.dialog.fullWidth;
 				UTILS.dialog.newImg(allImgs, 0);
 			}
@@ -71,7 +72,6 @@ var UTILS = {
 
 		newImg: function(imgs, fill) {
 			img = imgs[0];
-			console.log(img);
 			imgs = imgs.slice(1, imgs.length);
 
 			// see if there are more images
@@ -110,9 +110,31 @@ var UTILS = {
 		},
 
 		sizeText: function() {
-			console.log($('#popup .title').outerHeight());
-			console.log($('#popup .imgs').outerHeight());
-			console.log($('#popup .txt p').outerHeight());
+			var contentsHeight = $('#popup .title').outerHeight(true) +  // trues include margin in height
+								 $('#popup .imgs').outerHeight(true) +
+								 $('#popup .txt p').outerHeight(true);
+			if (contentsHeight > UTILS.dialog.fullHeight) {
+				UTILS.dialog.fullHeight = contentsHeight;
+				$('#popup').height(UTILS.dialog.fullHeight);
+			}
+		},
+
+		scroll: function(y) {
+			$('#container').css({'height':'auto', 'overflow':'visible'});
+
+			var windowHeight = $(window).height();
+			var diff = windowHeight - UTILS.dialog.fullHeight;
+			if (diff < 100) {
+				$('#popup').css({'margin-top':-y});
+				if (UTILS.dialog.tile != null) {
+					var newHeight = null;
+					console.log(diff);
+					if (diff > 50) { newHeight = windowHeight; }
+					else if (diff > 0) { newHeight = windowHeight + 50; }
+					else { newHeight = windowHeight + 75; }
+					$('#container').css({'height':newHeight, 'overflow':'hidden'});
+				}
+			}
 		}
 	},
 
