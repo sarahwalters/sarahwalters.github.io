@@ -29,6 +29,9 @@ var UTILS = {
 				UTILS.dialog.tile = CONTENT.tiles[tileIndex];
 				var tRender = $('#popupTemplate').render(UTILS.dialog.tile);
  
+ 				// send to Google Analytics
+ 				ga('send', 'event', 'dialog', 'click', 'opened', UTILS.dialog.tile.title);
+
 				// make popup template
 				$('#popup').html(tRender);
 				UTILS.dialog.sizeFrame(); // adds images as well
