@@ -41,6 +41,7 @@ var UTILS = {
 									$('#background').hide()
 									$('#popup .imgs').html('');
 									UTILS.dialog.tile = null;
+									$('#container').css({'height':'auto', 'overflow':'visible'});
 								}}, 
 								200);
 			});
@@ -116,24 +117,13 @@ var UTILS = {
 			if (contentsHeight > UTILS.dialog.fullHeight) {
 				UTILS.dialog.fullHeight = contentsHeight;
 				$('#popup').height(UTILS.dialog.fullHeight);
+				$('#container').css({'height':UTILS.dialog.fullHeight+50, 'overflow':'hidden'});
 			}
 		},
 
 		scroll: function(y) {
-			$('#container').css({'height':'auto', 'overflow':'visible'});
-
-			var windowHeight = $(window).height();
-			var diff = windowHeight - UTILS.dialog.fullHeight;
-			if (diff < 100) {
+			if ($(window).height() - UTILS.dialog.fullHeight < 100) {
 				$('#popup').css({'margin-top':-y});
-				if (UTILS.dialog.tile != null) {
-					var newHeight = null;
-					console.log(diff);
-					if (diff > 50) { newHeight = windowHeight; }
-					else if (diff > 0) { newHeight = windowHeight + 50; }
-					else { newHeight = windowHeight + 75; }
-					$('#container').css({'height':newHeight, 'overflow':'hidden'});
-				}
 			}
 		}
 	},
