@@ -24,11 +24,11 @@
 				// initialize handlers for contact buttons
 				var buttons = ['github', 'linkedin', 'youtube', 'email'];
 				buttons.map(function(name) {
-					$('#'+name).onclick(function() {
+					$('#'+name).on('click', function() {
 						ga('send', 'event', 'contact', 'click', name);
 					});
 
-					$('#'+name).mouseover(function() {
+					$('#'+name).on('mouseover', function() {
 						ga('send', 'event', 'contact', 'mouseover', name);
 					});
 				})
