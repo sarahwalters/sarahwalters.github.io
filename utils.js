@@ -30,7 +30,7 @@ var UTILS = {
 				var tRender = $('#popupTemplate').render(UTILS.dialog.tile);
  
  				// send to Google Analytics
- 				ga('send', 'event', 'dialog', 'click', 'opened', UTILS.dialog.tile.title);
+ 				ga('send', 'event', 'dialog', 'click', UTILS.dialog.tile.title);
 
 				// make popup template
 				$('#popup').html(tRender);
