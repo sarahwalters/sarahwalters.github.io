@@ -20,6 +20,19 @@
 				UTILS.columns.fill();
 				CONTENT.makeTiles();
 				UTILS.dialog.initialize();
+
+				// initialize handlers for contact buttons
+				var buttons = ['github', 'linkedin', 'youtube', 'email'];
+				buttons.map(function(name) {
+					$('#'+name).onclick(function() {
+						ga('send', 'event', 'contact', 'click', name);
+					});
+
+					$('#'+name).mouseover(function() {
+						ga('send', 'event', 'contact', 'mouseover', name);
+					});
+				})
+
 			 });
 			$(window).resize(function() { 
 				UTILS.sizing.landscapeResize();
@@ -63,10 +76,10 @@
 					</ul>
 				</div>
 				<div id='links'>
-					<a href='http://github.com/sarahwalters' target='_blank' onclick="ga('send', 'event', 'contact', 'click', 'github')"><div class='linkImg' id='github'></div></a>
-					<a href='http://www.linkedin.com/pub/sarah-walters/78/352/b46/' target='_blank' onclick="ga('send', 'event', 'contact', 'click', 'linkedin')"><div class='linkImg' id='linkedin'></div></a>
-					<!--<a href='http://www.linkedin.com/pub/sarah-walters/78/352/b46/' target='_blank' onclick="ga('send', 'event', 'contact', 'click', 'youtube')"><div class='linkImg' id='youtube'></div></a>-->
-					<a href='mailto:swalters4925@gmail.com' onclick="ga('send', 'event', 'contact', 'click', 'email')"><div class='linkImg' id='email'></div></a>
+					<a href='http://github.com/sarahwalters' target='_blank'><div class='linkImg' id='github'></div></a>
+					<a href='http://www.linkedin.com/pub/sarah-walters/78/352/b46/' target='_blank'><div class='linkImg' id='linkedin'></div></a>
+					<!--<a href='http://www.linkedin.com/pub/sarah-walters/78/352/b46/' target='_blank'><div class='linkImg' id='youtube'></div></a>-->
+					<a href='mailto:swalters4925@gmail.com'><div class='linkImg' id='email'></div></a>
 				</div>
 			</div>
 
