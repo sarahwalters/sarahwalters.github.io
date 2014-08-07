@@ -172,7 +172,7 @@ var UTILS = {
 			// things inside #nav
 			UTILS.sizing.navHeight = $('#nav').height(); // from css
 			UTILS.sizing.photoHeight = $('#nav').width(); // from css
-			UTILS.sizing.linksHeight = 0.065*UTILS.sizing.navHeight;
+			UTILS.sizing.linksHeight = 20;
 			UTILS.sizing.tagsHeight = UTILS.sizing.navHeight - UTILS.sizing.photoHeight - UTILS.sizing.linksHeight;
 
 			// apply sizing

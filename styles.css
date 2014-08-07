@@ -58,17 +58,21 @@ html, body {
 			margin-left: 5px;
 		}
 
-		.linkImg { background-size: 100%; background-repeat: no-repeat; }
+		.linkImg {
+			background: url('contact-icons.png');
+			background-size: 120px 20px;
+			background-repeat: no-repeat; 
+		}
 
-		#email { background-image: url('images/email.png'); }
-		#youtube { background-image: url('images/youtube.png'); }
-		#linkedin { background-image: url('images/linkedin.png'); }
-		#github { background-image: url('images/github.png'); }
+		#email { background-position: -80px; }
+		#youtube { }
+		#linkedin { background-position: -40px; }
+		#github { background-position: 0px; }
 
-		#email:hover { background-image: url('images/email-hover.png'); }
-		#youtube:hover { background-image: url('images/youtube-hover.png'); }
-		#linkedin:hover { background-image: url('images/linkedin-hover.png'); }
-		#github:hover { background-image: url('images/github-hover.png'); }
+		#email:hover { background-position: -100px; }
+		#youtube:hover { }
+		#linkedin:hover { background-position: -60px; }
+		#github:hover { background-position: -20px; }
 
 #projects {
 	width: 80%;
