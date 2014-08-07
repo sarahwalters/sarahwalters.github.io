@@ -26,7 +26,6 @@ var UTILS = {
 				var tileId = $(event.target).closest('.tile')[0].id;
 				var split = tileId.indexOf('-')+1;
 				var tileIndex = tileId.substr(split, tileId.length-split);
-				UTILS.dialog.tile = CONTENT.tiles[tileIndex];
 				var tRender = $('#popupTemplate').render(UTILS.dialog.tile);
  
  				// send to Google Analytics
@@ -43,6 +42,8 @@ var UTILS = {
 				var tileId = $(event.target).closest('.tile')[0].id;
 				var split = tileId.indexOf('-')+1;
 				var tileIndex = tileId.substr(split, tileId.length-split);
+				console.log('Index: ' + tileIndex);
+				console.log(CONTENT.tiles[tileIndex])
 				UTILS.dialog.tile = CONTENT.tiles[tileIndex];
 
  				// send to Google Analytics
