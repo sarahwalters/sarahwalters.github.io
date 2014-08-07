@@ -39,6 +39,12 @@ var UTILS = {
 			});
 
 			$('.tile').on('mouseenter', function(event) {
+				// get tile upon which mouseover occurred
+				var tileId = $(event.target).closest('.tile')[0].id;
+				var split = tileId.indexOf('-')+1;
+				var tileIndex = tileId.substr(split, tileId.length-split);
+				UTILS.dialog.tile = CONTENT.tiles[tileIndex];
+
  				// send to Google Analytics
  				ga('send', 'event', 'dialog', 'mouseenter', UTILS.dialog.tile.title);
 			});
