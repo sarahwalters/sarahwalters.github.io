@@ -38,6 +38,11 @@ var UTILS = {
 				UTILS.dialog.addImgs();
 			});
 
+			$('.tile').on('mouseenter', function(event) {
+ 				// send to Google Analytics
+ 				ga('send', 'event', 'dialog', 'mouseenter', UTILS.dialog.tile.title);
+			});
+
 			$('#background').on('click', function() {
 				$('#popup').hide("fade", 
 								{ complete: function() {
