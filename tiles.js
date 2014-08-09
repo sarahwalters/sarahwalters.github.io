@@ -1,13 +1,14 @@
 var CONTENT = {
 	tiles: null,
 
-	tile: function(id, title, img, txt, extraImgs) {
+	tile: function(id, title, img, txt, extraImgs, tags) {
   		return {
   			id: id,
   			title: title,
   			img: img,
   			txt: txt,
-  			extraImgs: extraImgs
+  			extraImgs: extraImgs,
+  			tags: tags
   		}
 	},
 
@@ -15,9 +16,9 @@ var CONTENT = {
 		if (CONTENT.tiles == null) {
 			var ipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis ultricies nibh a volutpat. Cras aliquet, turpis id viverra fringilla, felis arcu placerat lectus, vitae venenatis tellus nunc eget elit. Vestibulum vitae leo bibendum, euismod ligula a, pellentesque mi. Quisque in elit lectus. Sed pellentesque elementum nunc, non cursus tellus venenatis vel. Nullam ac faucibus arcu. Sed enim tellus, iaculis a nunc non, sodales fringilla elit. Morbi interdum lobortis ultrices. Nam fermentum lorem enim, a tincidunt est pellentesque at. Ut in interdum velit, vel malesuada est.';
 			var ipsum = ipsum+'<br><br>'+ipsum;
-			var tile0 = CONTENT.tile(0, 'Sample project 0', 'tiles/sunrise.png', ipsum, ['tiles/portrait.png', 'tiles/sunrise.png']);
-			var tile1 = CONTENT.tile(1, 'Sample project 1', 'tiles/portrait.png', ipsum, ['tiles/portrait.png', 'tiles/portrait.png']);
-			var tile2 = CONTENT.tile(2, 'Sample project 2', 'tiles/sunrise.png', ipsum, []);
+			var tile0 = CONTENT.tile(0, 'Sample project 0', 'tiles/sunrise.png', ipsum, ['tiles/portrait.png', 'tiles/sunrise.png'], ['design', 'software']);
+			var tile1 = CONTENT.tile(1, 'Sample project 1', 'tiles/portrait.png', ipsum, ['tiles/portrait.png', 'tiles/portrait.png'], ['design']);
+			var tile2 = CONTENT.tile(2, 'Sample project 2', 'tiles/sunrise.png', ipsum, [], ['design', 'music']);
 			var tile3 = CONTENT.tile(3, 'Sample project 3', 'tiles/portrait.png', ipsum, ['tiles/portrait.png', 'tiles/sunrise.png', 'tiles/portrait.png']);
 			var tile4 = CONTENT.tile(4, 'Sample project 4', 'tiles/portrait.png', ipsum, []);
 			var tile5 = CONTENT.tile(5, 'Sample project 5', 'tiles/sunrise.png', ipsum, []);
@@ -38,5 +39,9 @@ var CONTENT = {
 			$(UTILS.colIds[shortestColIndex]).append(tRender);
 			colHeights[shortestColIndex] += $('#tile-'+t.id).height();
 		});
+	},
+
+	filterTiles: function() {
+		console.log($('#tags li p.selected'));
 	}
 }

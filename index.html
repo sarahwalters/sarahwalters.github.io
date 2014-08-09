@@ -21,6 +21,24 @@
 				CONTENT.makeTiles();
 				UTILS.dialog.initialize();
 
+				// initialize handlers for tile downselectors
+				var selectors = ['design', 'software', 'music'];
+				selectors.map(function(name) {
+					$('#'+name).on('click', function() {
+						if ($('#'+name).hasClass('selected')) {
+							$('#'+name).removeClass('selected');
+						} else {
+							$('#'+name).addClass('selected');
+							ga('send', 'event', 'downselect', 'click', name);
+						}
+						CONTENT.filterTiles();
+					});
+
+					$('#'+name).on('mouseenter', function() {
+						ga('send', 'event', 'downselect', 'mouseenter', name);
+					});
+				})
+
 				// initialize handlers for contact buttons
 				var buttons = ['github', 'linkedin', 'youtube', 'email'];
 				buttons.map(function(name) {
@@ -32,7 +50,6 @@
 						ga('send', 'event', 'contact', 'mouseenter', name);
 					});
 				})
-
 			 });
 			$(window).resize(function() { 
 				UTILS.sizing.landscapeResize();
@@ -69,10 +86,10 @@
 				</div>
 				<div id='tags'>
 					<ul>
-						<li>Design</li>
-						<li>Software</li>
+						<li><p id='design'>Design</p></li>
+						<li><p id='software'>Software</p></li>
 						<!--<li>Physics</li>-->
-						<li>Music</li>
+						<li><p id='music'>Music</p></li>
 					</ul>
 				</div>
 				<div id='links'>
