@@ -33,8 +33,11 @@ var CONTENT = {
 			var tile10 = CONTENT.tile(10, 'Sample project 10', 'tiles/portrait.png', ipsum, []);
 			var tile11 = CONTENT.tile(11, 'Sample project 11', 'tiles/sunrise.png', ipsum, []);
 			CONTENT.tiles = [tile0, tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9, tile10, tile11];
+			CONTENT.drawTiles()
 		}
+	},
 
+	drawTiles: function() {
 		var colHeights = UTILS.colIds.map(function(colId) { return 0; });
 
 		CONTENT.tiles.map(function(t) {
@@ -48,22 +51,14 @@ var CONTENT = {
 	buildTile: function(num) {
 		$.get('tiles/'+num+'/text.txt', function(data) {
 			var a = data.split('\n***\n');
-			console.log(a);
-			CONTENT.makeTileObject(num, a[0], a[1], a[2].split('\n'));
+			var title = a[0]
+			var text = a[1]
+			var imgs = a[2].split('\n').map(function(img) {
+				return 'tiles/'+id+'/'+img;
+			})
+			var tile = CONTENT.tile(num, title, imgs[0], text, imgs.slice(1,imgs.length), [])			
+			CONTENT.drawTiles();
 		});
-	},
-
-	makeTileObject: function(id, title, text, imgs) {
-		console.log(title)
-		console.log(text)
-		console.log(imgs)
-		imgs = imgs.map(function(img) {
-			return 'tiles/'+id+'/'+img;
-		})
-		var tile = CONTENT.tile(id, title, imgs[0], text, imgs.slice(1,imgs.length), [])
-		console.log(tile)
-		CONTENT.tiles.push(tile);
-		console.log(CONTENT.tiles);
 	},
 
 	filterTiles: function() {
