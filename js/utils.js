@@ -25,7 +25,6 @@ var UTILS = {
 				var tileId = $(event.target).closest('.tile')[0].id;
 				var split = tileId.indexOf('-')+1;
 				var tileIndex = tileId.substr(split, tileId.length-split);
-				console.log(tileIndex);
 				UTILS.dialog.tile = CONTENT.tiles[parseInt(tileIndex)];
 				var tRender = $('#popupTemplate').render(UTILS.dialog.tile);
  				// send to Google Analytics
@@ -131,6 +130,7 @@ var UTILS = {
 
 		// position text wrt images
 		sizeText: function() {
+			window.scrollTo(0,0);
 			var contentsHeight = $('#popup .title').outerHeight(true) +  // trues include margin in height
 								 $('#popup .imgs').outerHeight(true) +
 								 $('#popup .txt p').outerHeight(true);
@@ -139,7 +139,7 @@ var UTILS = {
 				$('#popup').height(UTILS.dialog.fullHeight);
 				$('#container').css({'height':UTILS.dialog.fullHeight+50, 'overflow':'hidden'});
 			}
-			window.scrollTo(0,0);
+			
 		},
 
 		// scroll popup

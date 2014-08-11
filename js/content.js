@@ -103,7 +103,6 @@ var CONTENT = {
 			var added = false;
 			tags.map(function(tag) {
 				if (!added && tile.tags && tile.tags.indexOf(tag)>-1) {
-					console.log('#tile-'+tile.id);
 					toShow.push(tile);
 					added = true;
 				}
