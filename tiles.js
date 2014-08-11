@@ -17,8 +17,7 @@ var CONTENT = {
 		CONTENT.buildTile('02');
 		CONTENT.buildTile('03');
 
-		if (CONTENT.tiles.length = 0) {
-			CONTENT.buildTile('01');
+		if (CONTENT.tiles.length == 0) {
 			var ipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis ultricies nibh a volutpat. Cras aliquet, turpis id viverra fringilla, felis arcu placerat lectus, vitae venenatis tellus nunc eget elit. Vestibulum vitae leo bibendum, euismod ligula a, pellentesque mi. Quisque in elit lectus. Sed pellentesque elementum nunc, non cursus tellus venenatis vel. Nullam ac faucibus arcu. Sed enim tellus, iaculis a nunc non, sodales fringilla elit. Morbi interdum lobortis ultrices. Nam fermentum lorem enim, a tincidunt est pellentesque at. Ut in interdum velit, vel malesuada est.';
 			var ipsum = ipsum+'<br><br>'+ipsum;
 			var tile0 = CONTENT.tile(0, 'Sample project 0', 'tiles/sunrise.png', ipsum, ['tiles/portrait.png', 'tiles/sunrise.png'], ['design', 'software']);
