@@ -23,9 +23,9 @@ var UTILS = {
 				var tileId = $(event.target).closest('.tile')[0].id;
 				var split = tileId.indexOf('-')+1;
 				var tileIndex = tileId.substr(split, tileId.length-split);
+				console.log(tileIndex);
 				UTILS.dialog.tile = CONTENT.tiles[parseInt(tileIndex)-1];
 				var tRender = $('#popupTemplate').render(UTILS.dialog.tile);
- 
  				// send to Google Analytics
  				ga('send', 'event', 'dialog', 'click', UTILS.dialog.tile.title);
 
@@ -42,7 +42,7 @@ var UTILS = {
 				var tileIndex = tileId.substr(split, tileId.length-split);
 
 				// get tile, send to Google Analytics, then clear
-				UTILS.dialog.tile = CONTENT.tiles[tileIndex];
+				UTILS.dialog.tile = CONTENT.tiles[parseInt(tileIndex)-1];
  				ga('send', 'event', 'dialog', 'mouseenter', UTILS.dialog.tile.title);
  				UTILS.dialog.tile = null;
 			});

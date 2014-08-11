@@ -15,7 +15,7 @@ var CONTENT = {
 
 	// handles tiles
 	makeTiles: function() {
-		if (true) { // true for live, false for local
+		if (false) { // true for live, false for local
 			var nums = ['01', '02', '03']
 			CONTENT.buildTiles(nums);
 		} else {
@@ -33,7 +33,7 @@ var CONTENT = {
 			var tile9 = CONTENT.tile(9, 'Sample project 9', 'tiles/sunrise.png', ipsum, []);
 			var tile10 = CONTENT.tile(10, 'Sample project 10', 'tiles/portrait.png', ipsum, []);
 			var tile11 = CONTENT.tile(11, 'Sample project 11', 'tiles/sunrise.png', ipsum, []);
-			CONTENT.tiles = [tile0, tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9, tile10, tile11];
+			CONTENT.tiles = [tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9, tile10, tile11];
 			CONTENT.drawTiles()
 		}
 	},
