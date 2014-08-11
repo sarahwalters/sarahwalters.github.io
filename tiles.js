@@ -1,6 +1,7 @@
 var CONTENT = {
 	tiles: [],
 
+	// tile object
 	tile: function(id, title, img, txt, extraImgs, tags) {
   		return {
   			id: id,
@@ -12,12 +13,12 @@ var CONTENT = {
   		}
 	},
 
+	// handles tiles
 	makeTiles: function() {
-		CONTENT.buildTile('01');
-		CONTENT.buildTile('02');
-		CONTENT.buildTile('03');
-
 		if (false) {
+			var nums = ['01', '02', '03']
+			CONTENT.buildTiles(nums);
+		} else {
 			var ipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis ultricies nibh a volutpat. Cras aliquet, turpis id viverra fringilla, felis arcu placerat lectus, vitae venenatis tellus nunc eget elit. Vestibulum vitae leo bibendum, euismod ligula a, pellentesque mi. Quisque in elit lectus. Sed pellentesque elementum nunc, non cursus tellus venenatis vel. Nullam ac faucibus arcu. Sed enim tellus, iaculis a nunc non, sodales fringilla elit. Morbi interdum lobortis ultrices. Nam fermentum lorem enim, a tincidunt est pellentesque at. Ut in interdum velit, vel malesuada est.';
 			var ipsum = ipsum+'<br><br>'+ipsum;
 			var tile0 = CONTENT.tile(0, 'Sample project 0', 'tiles/sunrise.png', ipsum, ['tiles/portrait.png', 'tiles/sunrise.png'], ['design', 'software']);
@@ -37,6 +38,7 @@ var CONTENT = {
 		}
 	},
 
+	// renders tile objects
 	drawTiles: function() {
 		var colHeights = UTILS.colIds.map(function(colId) { return 0; });
 
@@ -48,17 +50,29 @@ var CONTENT = {
 		});
 	},
 
-	buildTile: function(num) {
+	// makes tile objects from file
+	buildTiles: function(nums) {
+		var num = nums[0];
 		$.get('tiles/'+num+'/text.txt', function(data) {
+			// unpack data
 			var a = data.split('\n***\n');
 			var title = a[0]
 			var text = a[1]
 			var imgs = a[2].split('\n').map(function(img) {
 				return 'tiles/'+num+'/'+img;
 			})
+
+			// make tile & add to list
 			var tile = CONTENT.tile(num, title, imgs[0], text, imgs.slice(1,imgs.length), [])			
 			CONTENT.tiles.push(tile);
-			CONTENT.drawTiles();
+
+			// update nums and recursively call back if it isn't empty
+			nums = nums.slice(1, nums.length);
+			if (nums.length > 0) {
+				CONTENT.buildTiles(nums);
+			} else {
+				CONTENT.drawTiles();
+			}
 		});
 	},
 

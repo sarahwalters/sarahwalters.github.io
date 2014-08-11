@@ -20,6 +20,7 @@ var UTILS = {
 			}
 
 			$('.tile').on('click', function(event) {
+				console.log('clicked on tile');
 				$('#background').show();
 
 				// get tile upon which click occurred
