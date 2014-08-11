@@ -89,7 +89,7 @@ html, body {
 		padding-top: 2.5%;
 		background-color: #ddd;
 		margin-bottom: 10px;
-		border-radius: 5px;
+		border-radius: 2px;
 	}
 		.tile .title {
 			text-align: center;
@@ -107,7 +107,7 @@ html, body {
 	height: 100px;
 	width: 100px;
 	background-color: #ddd;
-	border-radius: 10px;
+	border-radius: 5px;
 	position: fixed;
 	z-index: 50;
 	display: none;
