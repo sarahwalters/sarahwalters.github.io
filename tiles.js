@@ -60,14 +60,17 @@ var CONTENT = {
 		$.get('tiles/'+num+'/text.txt', function(data) {
 			var a = data.split('\n***\n');
 			console.log(a);
-			makeTileObject(a[0], a[1], a[2].split('\n'));
+			CONTENT.makeTileObject(num, a[0], a[1], a[2].split('\n'));
 		});
 	},
 
-	makeTileObject: function(title, text, imgs) {
+	makeTileObject: function(id, title, text, imgs) {
 		console.log(title)
 		console.log(text)
 		console.log(imgs)
+		var tile = CONTENT.tile(id, title, imgs[0], text, imgs.slice(1,imgs.length), [])
+		console.log(tile)
+		return tile
 	},
 
 	filterTiles: function() {
