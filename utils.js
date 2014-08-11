@@ -67,6 +67,7 @@ var UTILS = {
 			// height
 			UTILS.dialog.fullHeight = $(window).height()-100;
 			$('#popup').height(UTILS.dialog.fullHeight);
+			UTILS.dialog.imgsHeight = 0.5*UTILS.dialog.fullHeight;
 			$('#popup .imgs').height(UTILS.dialog.imgsHeight);
 
 			// width
