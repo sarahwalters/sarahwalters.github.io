@@ -21,9 +21,18 @@ var CONTENT = {
             }
         });*/
 
+		var title;
+		var text;
 		$.get('tiles/01/text.txt', function(data) {
-			console.log('DATA: ' + data);
+			var a = data.split('\n***\n');
+			title = a[0]
+			text = a[1]
+			imgs = a[2].split('\n');
 		});
+
+		console.log(title)
+		console.log(text)
+		console.log(imgs)
 
 		if (CONTENT.tiles == null) {
 			var ipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis ultricies nibh a volutpat. Cras aliquet, turpis id viverra fringilla, felis arcu placerat lectus, vitae venenatis tellus nunc eget elit. Vestibulum vitae leo bibendum, euismod ligula a, pellentesque mi. Quisque in elit lectus. Sed pellentesque elementum nunc, non cursus tellus venenatis vel. Nullam ac faucibus arcu. Sed enim tellus, iaculis a nunc non, sodales fringilla elit. Morbi interdum lobortis ultrices. Nam fermentum lorem enim, a tincidunt est pellentesque at. Ut in interdum velit, vel malesuada est.';
