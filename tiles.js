@@ -54,7 +54,7 @@ var CONTENT = {
 			var title = a[0]
 			var text = a[1]
 			var imgs = a[2].split('\n').map(function(img) {
-				return 'tiles/'+id+'/'+img;
+				return 'tiles/'+num+'/'+img;
 			})
 			var tile = CONTENT.tile(num, title, imgs[0], text, imgs.slice(1,imgs.length), [])			
 			CONTENT.drawTiles();
