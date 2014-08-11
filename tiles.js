@@ -39,16 +39,27 @@ var CONTENT = {
 	},
 
 	// renders tile objects
-	drawTiles: function() {
+	drawTiles: function(tiles) {
+		// if not specified, use all tiles; otherwise, use subset
+		if (tiles == undefined) {
+			tiles = CONTENT.tiles;
+		}
+
+		// clear columns & heights
+		UTILS.colIds.map(function(colId) {
+			$(colId).html('');
+		});
 		var colHeights = UTILS.colIds.map(function(colId) { return 0; });
 
-		CONTENT.tiles.map(function(t) {
+		// draw new tiles
+		tiles.map(function(t) {
 			var tRender = $('#tileTemplate').render(t);
 			var shortestColIndex = colHeights.indexOf(Math.min.apply(null, colHeights));
 			$(UTILS.colIds[shortestColIndex]).append(tRender);
 			colHeights[shortestColIndex] += $('#tile-'+t.id).height();
 		});
 
+		// get dialog ready
 		UTILS.dialog.initialize();
 	},
 
@@ -62,10 +73,11 @@ var CONTENT = {
 			var text = a[1]
 			var imgs = a[2].split('\n').map(function(img) {
 				return 'tiles/'+num+'/'+img;
-			})
+			});
+			var tags = a[3].split('\n');
 
 			// make tile & add to list
-			var tile = CONTENT.tile(num, title, imgs[0], text, imgs.slice(1,imgs.length), [])			
+			var tile = CONTENT.tile(num, title, imgs[0], text, imgs.slice(1,imgs.length), tags)			
 			CONTENT.tiles.push(tile);
 
 			// update nums and recursively call back if it isn't empty
@@ -79,6 +91,28 @@ var CONTENT = {
 	},
 
 	filterTiles: function() {
-		console.log($('#tags li p.selected'));
+		var selected = $('#tags li p.selected');
+		var tags = [];
+		for (var i=0; i<selected.length; i++) {
+			tags.push(selected[i].id);
+		}
+
+		var toShow = [];
+		CONTENT.tiles.map(function(tile) {
+			var added = false;
+			tags.map(function(tag) {
+				if (!added && tile.tags && tile.tags.indexOf(tag)>-1) {
+					console.log('#tile-'+tile.id);
+					toShow.push(tile);
+					added = true;
+				}
+			});
+		});
+
+		if (toShow.length != 0) {
+			CONTENT.drawTiles(toShow);
+		} else {
+			CONTENT.drawTiles(CONTENT.tiles);
+		}
 	}
 }

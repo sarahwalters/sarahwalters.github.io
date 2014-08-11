@@ -7,6 +7,7 @@ var UTILS = {
 		imgsWidth: null,
 		fullWidth: null,
 		fullHeight: null,
+		outerScrollY: null,
 
 		initialize: function() {
 			console.log('Initialized');
@@ -16,7 +17,7 @@ var UTILS = {
 			}
 
 			$('.tile').on('click', function(event) {
-				console.log('clicked on tile');
+				UTILS.dialog.outerScrollY = window.scrollY;
 				$('#background').show();
 
 				// get tile upon which click occurred
@@ -54,6 +55,7 @@ var UTILS = {
 									$('#popup .imgs').html('');
 									UTILS.dialog.tile = null;
 									$('#container').css({'height':'auto', 'overflow':'visible'});
+									window.scrollTo(0,UTILS.dialog.outerScrollY);
 								}}, 
 								200);
 			});
@@ -132,6 +134,7 @@ var UTILS = {
 				$('#popup').height(UTILS.dialog.fullHeight);
 				$('#container').css({'height':UTILS.dialog.fullHeight+50, 'overflow':'hidden'});
 			}
+			window.scrollTo(0,0);
 		},
 
 		scroll: function(y) {

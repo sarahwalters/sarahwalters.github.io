@@ -5,3 +5,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis ultric
 portrait.png
 portrait2.png
 ***
+software
+music
+***
