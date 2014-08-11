@@ -1,70 +1,96 @@
 var UTILS = {
-	colIds: [], 
+	colIds: [],
 
-	columns: {
-		fill: function() {
-		}
-	},
-
+	// handles popup box
 	dialog: {
 		tile: null,
 		imgsHeight: null,
 		imgsWidth: null,
 		fullWidth: null,
+		fullHeight: null,
+		outerScrollY: null,
 
+		// draw popup & register handlers
 		initialize: function() {
 			if (UTILS.dialog.tile != null) {
-				UTILS.dialog.resize();
+				UTILS.dialog.sizeFrame();
+				UTILS.dialog.addImgs();
 			}
 
 			$('.tile').on('click', function(event) {
+				UTILS.dialog.outerScrollY = window.scrollY;
 				$('#background').show();
 
 				// get tile upon which click occurred
 				var tileId = $(event.target).closest('.tile')[0].id;
-				var tileIndex = tileId.substr(tileId.length-1, 1);
-				UTILS.dialog.tile = CONTENT.tiles[tileIndex];
+				var split = tileId.indexOf('-')+1;
+				var tileIndex = tileId.substr(split, tileId.length-split);
+				console.log(tileIndex);
+				UTILS.dialog.tile = CONTENT.tiles[parseInt(tileIndex)];
 				var tRender = $('#popupTemplate').render(UTILS.dialog.tile);
- 
+ 				// send to Google Analytics
+ 				ga('send', 'event', 'dialog', 'click', UTILS.dialog.tile.title);
+
 				// make popup template
 				$('#popup').html(tRender);
-				UTILS.dialog.resize(); // adds images as well
+				UTILS.dialog.sizeFrame(); // adds images as well
+				UTILS.dialog.addImgs();
+			});
 
-				$('#popup').show("scale", { direction: "both" }, 500);
+			$('.tile').on('mouseenter', function(event) {
+				// get tile upon which mouseover occurred
+				var tileId = $(event.target).closest('.tile')[0].id;
+				var split = tileId.indexOf('-')+1;
+				var tileIndex = tileId.substr(split, tileId.length-split);
+
+				// get tile, send to Google Analytics, then clear
+				UTILS.dialog.tile = CONTENT.tiles[parseInt(tileIndex)];
+ 				ga('send', 'event', 'dialog', 'mouseenter', UTILS.dialog.tile.title);
+ 				UTILS.dialog.tile = null;
 			});
 
 			$('#background').on('click', function() {
-				$('#popup').hide("scale", { direction: "both" }, 500);
-				UTILS.dialog.tile = null;
-				$('#popup .imgs').html('');
-				window.setTimeout(function() {$('#background').hide()}, 500);
+				$('#popup').hide("fade", 
+								{ complete: function() {
+									$('#background').hide()
+									$('#popup .imgs').html('');
+									UTILS.dialog.tile = null;
+									$('#container').css({'height':'auto', 'overflow':'visible'});
+									window.scrollTo(0,UTILS.dialog.outerScrollY);
+								}}, 
+								200);
 			});
 		},
 
-		resize: function() {
+		// make popup appropriate size
+		sizeFrame: function() {
 			// height
-			var popupHeight = $(window).height()-100;
-			$('#popup').height(popupHeight);
-			$('#popup .imgs').height(0.5*popupHeight);
+			UTILS.dialog.fullHeight = $(window).height()-100;
+			$('#popup').height(UTILS.dialog.fullHeight);
+			UTILS.dialog.imgsHeight = 0.5*UTILS.dialog.fullHeight;
+			$('#popup .imgs').height(UTILS.dialog.imgsHeight);
 
 			// width
 			$('#popup').width('95%');
 			UTILS.dialog.fullWidth = $('#popup').width();
 			var popupMargin = (UTILS.sizing.totalWidth - UTILS.dialog.fullWidth)/2;
-			$('#popup').css({'margin-left':popupMargin, 'margin-right':popupMargin})
+			$('#popup').css({'margin-left':popupMargin, 'margin-right':popupMargin});
+		},
 
+		// prepare to add images & trigger recursive adding
+		addImgs: function() {
 			if (UTILS.dialog.tile != null) {
 				$('#popup .imgs').html('');
 				var allImgs = [UTILS.dialog.tile.img].concat(UTILS.dialog.tile.extraImgs);
-				UTILS.dialog.imgsHeight = $('#popup .imgs').height();
+				UTILS.dialog.imgsHeight = 0.5*UTILS.dialog.fullHeight;
 				UTILS.dialog.imgsWidth = 0.9*UTILS.dialog.fullWidth;
-				UTILS.dialog.addImgs(allImgs, 0);
+				UTILS.dialog.newImg(allImgs, 0);
 			}
 		},
 
-		addImgs: function(imgs, fill) {
+		// add images recursively
+		newImg: function(imgs, fill) {
 			img = imgs[0];
-			console.log(img);
 			imgs = imgs.slice(1, imgs.length);
 
 			// see if there are more images
@@ -78,8 +104,8 @@ var UTILS = {
 					fill -= newImgWidth; // didn't add
 				}
 				if (imgs.length > 0) {
-					UTILS.dialog.addImgs(imgs, fill);
-				} else {
+					UTILS.dialog.newImg(imgs, fill);
+				} else { // done w/ recursion
 					UTILS.dialog.marginImages(fill);
 				}
 			}
@@ -87,6 +113,7 @@ var UTILS = {
 			addImg.src = img;
 		},
 
+		// lay images out in frame
 		marginImages: function(fill) {
 			var imgs = $('#popup .imgs img');
 			var insideMargin = 10;
@@ -99,12 +126,31 @@ var UTILS = {
 			var margin = (UTILS.dialog.imgsWidth - fill - gapSpace) / 2;
 			$(imgs[0]).css({'margin-left':margin});
 
-			console.log($('#popup .title').outerHeight());
-			console.log($('#popup .imgs').outerHeight());
-			console.log($('#popup .txt p').outerHeight());
+			$('#popup').show("fade", { complete: UTILS.dialog.sizeText }, 50);
+		},
+
+		// position text wrt images
+		sizeText: function() {
+			var contentsHeight = $('#popup .title').outerHeight(true) +  // trues include margin in height
+								 $('#popup .imgs').outerHeight(true) +
+								 $('#popup .txt p').outerHeight(true);
+			if (contentsHeight > UTILS.dialog.fullHeight) {
+				UTILS.dialog.fullHeight = contentsHeight;
+				$('#popup').height(UTILS.dialog.fullHeight);
+				$('#container').css({'height':UTILS.dialog.fullHeight+50, 'overflow':'hidden'});
+			}
+			window.scrollTo(0,0);
+		},
+
+		// scroll popup
+		scroll: function(y) {
+			if ($(window).height() - UTILS.dialog.fullHeight < 100) {
+				$('#popup').css({'margin-top':-y});
+			}
 		}
 	},
 
+	// handles page layout
 	sizing: {
 		// overall layout
 		totalWidth: 0,
@@ -118,6 +164,7 @@ var UTILS = {
 		tagsHeight: 0,
 		linksHeight: 0,
 
+		// size whole frame
 		landscapeResize: function() {
 			// overall layout
 			UTILS.sizing.totalWidth = $(window).width();
@@ -134,7 +181,7 @@ var UTILS = {
 			// things inside #nav
 			UTILS.sizing.navHeight = $('#nav').height(); // from css
 			UTILS.sizing.photoHeight = $('#nav').width(); // from css
-			UTILS.sizing.linksHeight = 0.065*UTILS.sizing.navHeight;
+			UTILS.sizing.linksHeight = 20;
 			UTILS.sizing.tagsHeight = UTILS.sizing.navHeight - UTILS.sizing.photoHeight - UTILS.sizing.linksHeight;
 
 			// apply sizing
@@ -150,6 +197,7 @@ var UTILS = {
 			UTILS.sizing.columnResize();
 		},
 
+		// size things in columns
 		columnResize: function() {
 			if (UTILS.sizing.projectsWidth > 1000) {
 				UTILS.colIds = ['#col1', '#col2', '#col3', '#col4'];
@@ -182,5 +230,5 @@ var UTILS = {
 				$(UTILS.colIds[i]).css({'margin-right':colMargin})
 			}
 		}
-	}
+	} 
 }

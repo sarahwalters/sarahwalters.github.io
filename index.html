@@ -4,15 +4,18 @@
 
 	<head>
 		<title>Sarah Walters</title>
-		<link rel="stylesheet" href="jquery-ui.min.css">
-		<link rel='stylesheet' type='text/css' href='styles.css'>
+		<link rel="stylesheet" href="css/lib/jquery-ui.min.css">
+		<link rel='stylesheet' type='text/css' href='css/styles.css'>
 		<link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-		<script src='http://code.jquery.com/jquery-1.11.0.min.js'></script>
-		<script src="jquery-ui.min.js"></script>
-		<script src="jsrender.js" type="text/javascript"></script>
-		<script src='utils.js'></script>
-		<script src='tiles.js'></script>
+		<!-- external -->
+		<script src='js/lib/jquery.js'></script>
+		<script src="js/lib/jquery-ui.min.js"></script>
+		<script src="js/lib/jsrender.js" type="text/javascript"></script>
+
+		<!-- specific -->
+		<script src='js/utils.js'></script>
+		<script src='js/content.js'></script>
 
 		<script>
 			$(document).ready(function() { 
@@ -81,7 +84,7 @@
 			<!-- nav -->
 			<div id='nav'>
 				<div id='photo'>
-					<img id='me' src='images/me.png'>
+					<img id='me' src='profile/me.png'>
 				</div>
 				<div id='tags'>
 					<ul>

@@ -1,6 +1,7 @@
 var UTILS = {
 	colIds: [],
 
+	// handles popup box
 	dialog: {
 		tile: null,
 		imgsHeight: null,
@@ -9,8 +10,8 @@ var UTILS = {
 		fullHeight: null,
 		outerScrollY: null,
 
+		// draw popup & register handlers
 		initialize: function() {
-			console.log('Initialized');
 			if (UTILS.dialog.tile != null) {
 				UTILS.dialog.sizeFrame();
 				UTILS.dialog.addImgs();
@@ -24,12 +25,11 @@ var UTILS = {
 				var tileId = $(event.target).closest('.tile')[0].id;
 				var split = tileId.indexOf('-')+1;
 				var tileIndex = tileId.substr(split, tileId.length-split);
-				console.log(tileIndex);
 				UTILS.dialog.tile = CONTENT.tiles[parseInt(tileIndex)];
 				var tRender = $('#popupTemplate').render(UTILS.dialog.tile);
  				// send to Google Analytics
  				ga('send', 'event', 'dialog', 'click', UTILS.dialog.tile.title);
-
+ 				
 				// make popup template
 				$('#popup').html(tRender);
 				UTILS.dialog.sizeFrame(); // adds images as well
@@ -61,6 +61,7 @@ var UTILS = {
 			});
 		},
 
+		// make popup appropriate size
 		sizeFrame: function() {
 			// height
 			UTILS.dialog.fullHeight = $(window).height()-100;
@@ -75,7 +76,7 @@ var UTILS = {
 			$('#popup').css({'margin-left':popupMargin, 'margin-right':popupMargin});
 		},
 
-		// triggers newImg recursiveness
+		// prepare to add images & trigger recursive adding
 		addImgs: function() {
 			if (UTILS.dialog.tile != null) {
 				$('#popup .imgs').html('');
@@ -86,6 +87,7 @@ var UTILS = {
 			}
 		},
 
+		// add images recursively
 		newImg: function(imgs, fill) {
 			img = imgs[0];
 			imgs = imgs.slice(1, imgs.length);
@@ -110,6 +112,7 @@ var UTILS = {
 			addImg.src = img;
 		},
 
+		// lay images out in frame
 		marginImages: function(fill) {
 			var imgs = $('#popup .imgs img');
 			var insideMargin = 10;
@@ -125,6 +128,7 @@ var UTILS = {
 			$('#popup').show("fade", { complete: UTILS.dialog.sizeText }, 50);
 		},
 
+		// position text wrt images
 		sizeText: function() {
 			var contentsHeight = $('#popup .title').outerHeight(true) +  // trues include margin in height
 								 $('#popup .imgs').outerHeight(true) +
@@ -137,6 +141,7 @@ var UTILS = {
 			window.scrollTo(0,0);
 		},
 
+		// scroll popup
 		scroll: function(y) {
 			if ($(window).height() - UTILS.dialog.fullHeight < 100) {
 				$('#popup').css({'margin-top':-y});
@@ -144,6 +149,7 @@ var UTILS = {
 		}
 	},
 
+	// handles page layout
 	sizing: {
 		// overall layout
 		totalWidth: 0,
@@ -157,6 +163,7 @@ var UTILS = {
 		tagsHeight: 0,
 		linksHeight: 0,
 
+		// size whole frame
 		landscapeResize: function() {
 			// overall layout
 			UTILS.sizing.totalWidth = $(window).width();
@@ -189,6 +196,7 @@ var UTILS = {
 			UTILS.sizing.columnResize();
 		},
 
+		// size things in columns
 		columnResize: function() {
 			if (UTILS.sizing.projectsWidth > 1000) {
 				UTILS.colIds = ['#col1', '#col2', '#col3', '#col4'];

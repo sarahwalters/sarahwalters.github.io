@@ -90,6 +90,7 @@ var CONTENT = {
 		});
 	},
 
+	// only shows selected tiles (left nav)
 	filterTiles: function() {
 		var selected = $('#tags li p.selected');
 		var tags = [];
