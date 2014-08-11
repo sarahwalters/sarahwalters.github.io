@@ -17,9 +17,7 @@
 		<script>
 			$(document).ready(function() { 
 				UTILS.sizing.landscapeResize();
-				UTILS.columns.fill();
 				CONTENT.makeTiles();
-				UTILS.dialog.initialize();
 
 				// initialize handlers for tile downselectors
 				var selectors = ['design', 'software', 'music'];
@@ -55,7 +53,6 @@
 			$(window).resize(function() { 
 				UTILS.sizing.landscapeResize();
 				CONTENT.makeTiles();
-				UTILS.dialog.initialize();
 			});
 			
 			$(window).scroll(function() {

@@ -1,11 +1,6 @@
 var UTILS = {
 	colIds: [],
 
-	columns: {
-		fill: function() {
-		}
-	},
-
 	dialog: {
 		tile: null,
 		imgsHeight: null,
@@ -14,6 +9,7 @@ var UTILS = {
 		fullHeight: null,
 
 		initialize: function() {
+			console.log('Initialized');
 			if (UTILS.dialog.tile != null) {
 				UTILS.dialog.sizeFrame();
 				UTILS.dialog.addImgs();
@@ -27,7 +23,7 @@ var UTILS = {
 				var tileId = $(event.target).closest('.tile')[0].id;
 				var split = tileId.indexOf('-')+1;
 				var tileIndex = tileId.substr(split, tileId.length-split);
-				UTILS.dialog.tile = CONTENT.tiles[tileIndex];
+				UTILS.dialog.tile = CONTENT.tiles[parseInt(tileIndex)-1];
 				var tRender = $('#popupTemplate').render(UTILS.dialog.tile);
  
  				// send to Google Analytics

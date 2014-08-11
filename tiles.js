@@ -15,7 +15,7 @@ var CONTENT = {
 
 	// handles tiles
 	makeTiles: function() {
-		if (true) {
+		if (false) { // true for live, false for local
 			var nums = ['01', '02', '03']
 			CONTENT.buildTiles(nums);
 		} else {
@@ -48,6 +48,8 @@ var CONTENT = {
 			$(UTILS.colIds[shortestColIndex]).append(tRender);
 			colHeights[shortestColIndex] += $('#tile-'+t.id).height();
 		});
+
+		UTILS.dialog.initialize();
 	},
 
 	// makes tile objects from file
