@@ -57,6 +57,7 @@ var CONTENT = {
 				return 'tiles/'+num+'/'+img;
 			})
 			var tile = CONTENT.tile(num, title, imgs[0], text, imgs.slice(1,imgs.length), [])			
+			CONTENT.tiles.push(tile);
 			CONTENT.drawTiles();
 		});
 	},
