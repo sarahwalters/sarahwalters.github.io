@@ -15,7 +15,7 @@ var CONTENT = {
 
 	// handles tiles
 	makeTiles: function() {
-		if (false) {
+		if (true) {
 			var nums = ['01', '02', '03']
 			CONTENT.buildTiles(nums);
 		} else {
