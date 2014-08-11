@@ -15,10 +15,10 @@ var CONTENT = {
 
 	// handles tiles
 	makeTiles: function() {
-		if (true) { // true for live, false for local
-			var nums = ['01', '02', '03']
+		if (window.location.protocol == 'http:') {
+			var nums = ['00', '01', '02', '03']
 			CONTENT.buildTiles(nums);
-		} else {
+		} else { // for local testing
 			var ipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis ultricies nibh a volutpat. Cras aliquet, turpis id viverra fringilla, felis arcu placerat lectus, vitae venenatis tellus nunc eget elit. Vestibulum vitae leo bibendum, euismod ligula a, pellentesque mi. Quisque in elit lectus. Sed pellentesque elementum nunc, non cursus tellus venenatis vel. Nullam ac faucibus arcu. Sed enim tellus, iaculis a nunc non, sodales fringilla elit. Morbi interdum lobortis ultrices. Nam fermentum lorem enim, a tincidunt est pellentesque at. Ut in interdum velit, vel malesuada est.';
 			var ipsum = ipsum+'<br><br>'+ipsum;
 			var tile0 = CONTENT.tile(0, 'Sample project 0', 'tiles/sunrise.png', ipsum, ['tiles/portrait.png', 'tiles/sunrise.png'], ['design', 'software']);
@@ -33,7 +33,7 @@ var CONTENT = {
 			var tile9 = CONTENT.tile(9, 'Sample project 9', 'tiles/sunrise.png', ipsum, []);
 			var tile10 = CONTENT.tile(10, 'Sample project 10', 'tiles/portrait.png', ipsum, []);
 			var tile11 = CONTENT.tile(11, 'Sample project 11', 'tiles/sunrise.png', ipsum, []);
-			CONTENT.tiles = [tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9, tile10, tile11];
+			CONTENT.tiles = [tile0, tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9, tile10, tile11];
 			CONTENT.drawTiles()
 		}
 	},

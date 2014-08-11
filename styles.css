@@ -90,6 +90,7 @@ html, body {
 		background-color: #ddd;
 		margin-bottom: 10px;
 		border-radius: 2px;
+		cursor: pointer;
 	}
 		.tile .title {
 			text-align: center;
@@ -138,4 +139,5 @@ html, body {
 	background-color: black;
 	opacity: 0.75;
 	display: none;
+	cursor: pointer;
 }
