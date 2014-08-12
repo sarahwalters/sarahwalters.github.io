@@ -22,9 +22,11 @@ var CONTENT = {
 			for (var i=0; i<=lastTileNum; i++) {
 				var str = i+'';
 				nums.push(str.length == 1 ? '0'+str : str);
-			}			
+			}		
+
 			// draw the tiles
 			CONTENT.buildTiles(nums);
+			
 		} else { // for local testing
 			// make the tiles
 			var ipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis ultricies nibh a volutpat. Cras aliquet, turpis id viverra fringilla, felis arcu placerat lectus, vitae venenatis tellus nunc eget elit. Vestibulum vitae leo bibendum, euismod ligula a, pellentesque mi. Quisque in elit lectus. Sed pellentesque elementum nunc, non cursus tellus venenatis vel. Nullam ac faucibus arcu. Sed enim tellus, iaculis a nunc non, sodales fringilla elit. Morbi interdum lobortis ultrices. Nam fermentum lorem enim, a tincidunt est pellentesque at. Ut in interdum velit, vel malesuada est.';
@@ -102,7 +104,7 @@ var CONTENT = {
 
 	// only shows selected tiles (left nav)
 	filterTiles: function() {
-		var selected = $('#tags li p.selected');
+		var selected = $('#tags li span.selected');
 		var tags = [];
 		for (var i=0; i<selected.length; i++) {
 			tags.push(selected[i].id);
