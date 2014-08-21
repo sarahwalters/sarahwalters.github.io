@@ -1,10 +1,11 @@
+/* MAIN */
 html, body {
 	width: 100%;
 	height: 100%;
 	margin: 0;
 	min-width: 500px;
-	font-family: Inconsolata, sans-serif;
-	color: #666;
+	font-family: Josefin Sans, sans-serif;
+	color: #555;
 }
 
 #container {
@@ -35,9 +36,8 @@ html, body {
 			padding: 0;
 		}
 			li {
-				height: 30px;
-				margin-bottom: 10px;
-				font-size: 20px;
+				margin-bottom: 15px;
+				font-size: 22px;
 				text-align: center;
 			}
 			li span:hover {
@@ -93,14 +93,14 @@ html, body {
 	}
 
 	.tile {
-		padding-top: 2.5%;
+		padding-top: 3%;
 		background-color: #ddd;
 		margin-bottom: 10px;
 		border-radius: 2px;
 		cursor: pointer;
 	}
 	.tile:hover {
-		background-color: #bbb;
+		background-color: #ccc;
 		-webkit-transition: background-color 1500ms linear;
     	-moz-transition: background-color 150ms linear;
     	-o-transition: background-color 150ms linear;
@@ -109,13 +109,15 @@ html, body {
 	}
 		.tile .title {
 			text-align: center;
+			font-size: 17px;
 		}
 		.tile .img {
 			line-height: 0;
 		}
 		.tile img {
 			width: 90%;
-			margin: 5%;
+			margin: 3% 5% 5% 5%;
+			/*border: 1px solid #ccc;*/
 		}
 
 #popup {
@@ -138,9 +140,13 @@ html, body {
 		margin: 0 5%;
 		background-color: transparent;
 	}
+	#popup img {
+		/*border: 1px solid #ccc;*/
+	}
 	#popup .txt {
 		width: 90%;
 		margin: 0 5%;
+		font-family: Open Sans, sans-serif;
 	}
 
 	#background {
@@ -154,3 +160,10 @@ html, body {
 		display: none;
 		cursor: pointer;
 	}
+
+/* BREAKPOINTS */
+@media only screen and (max-width:775px) { /* projects widh: 750 */
+	.tile .title {
+		font-size: 20px;
+	}
+}

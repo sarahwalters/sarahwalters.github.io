@@ -9,6 +9,7 @@ var UTILS = {
 		fullWidth: null,
 		fullHeight: null,
 		outerScrollY: null,
+		shown: false,
 
 		// draw popup & register handlers
 		initialize: function() {
@@ -49,15 +50,18 @@ var UTILS = {
 			});
 
 			$('#background').on('click', function() {
-				$('#popup').hide("fade", 
-								{ complete: function() {
-									$('#background').hide()
-									$('#popup .imgs').html('');
-									UTILS.dialog.tile = null;
-									$('#container').css({'height':'auto', 'overflow':'visible'});
-									window.scrollTo(0,UTILS.dialog.outerScrollY);
-								}}, 
-								200);
+				if (UTILS.dialog.shown == true) {
+					UTILS.dialog.shown = false;
+					$('#popup').hide("fade", 
+									{ complete: function() {
+										$('#background').hide()
+										$('#popup .imgs').html('');
+										UTILS.dialog.tile = null;
+										$('#container').css({'height':'auto', 'overflow':'visible'});
+										window.scrollTo(0,UTILS.dialog.outerScrollY);
+									}}, 
+									200);
+				}
 			});
 		},
 
@@ -130,6 +134,8 @@ var UTILS = {
 
 		// position text wrt images
 		sizeText: function() {
+			UTILS.dialog.shown = true;
+
 			window.scrollTo(0,0);
 			var contentsHeight = $('#popup .title').outerHeight(true) +  // trues include margin in height
 								 $('#popup .imgs').outerHeight(true) +
