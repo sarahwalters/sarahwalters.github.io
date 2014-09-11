@@ -9,6 +9,7 @@ $(document).ready(function() {
 			if ($('#'+name).hasClass('selected')) {
 				$('#'+name).removeClass('selected');
 			} else {
+				$('#tags span').removeClass('selected'); // remove this for multi select
 				$('#'+name).addClass('selected');
 				ga('send', 'event', 'downselect', 'click', name);
 			}

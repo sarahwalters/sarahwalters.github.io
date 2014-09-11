@@ -134,6 +134,17 @@ html, body {
 		text-align: center;
 		font-size: 24px;
 	}
+	#popup .exit {
+		position: absolute;
+		top: 2%;
+		right: 2%;
+		font-size: 16px;
+	}
+		.exit:hover {
+			cursor: pointer;
+			font-weight: bold;
+			color: #900;
+		}
 	#popup .imgs {
 		line-height: 0;
 		width: 90%;
