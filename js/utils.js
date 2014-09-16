@@ -48,10 +48,6 @@ var UTILS = {
  				ga('send', 'event', 'dialog', 'mouseenter', UTILS.dialog.tile.title);
  				UTILS.dialog.tile = null;
 			});
-
-			$('#background').on('click', function() {
-				UTILS.dialog.hideDialog();
-			});
 		},
 
 		// make popup appropriate size
@@ -107,6 +103,7 @@ var UTILS = {
 
 		// lay images out in frame
 		marginImages: function(fill) {
+			// compute
 			var imgs = $('#popup .imgs img');
 			var insideMargin = 10;
 			var gapSpace = (imgs.length-1)*insideMargin
@@ -115,12 +112,19 @@ var UTILS = {
 				$(imgs[i]).css({'margin-left':insideMargin})
 			}
 
+			// apply
 			var margin = (UTILS.dialog.imgsWidth - fill - gapSpace) / 2;
 			$(imgs[0]).css({'margin-left':margin});
 
+			// display popup
 			$('#popup').show("fade", { complete: UTILS.dialog.sizeText }, 50);
 		
+			// now that it exists, register handlers to close the window
 			$('#popup .exit').on('click', function() {
+				UTILS.dialog.hideDialog();
+			});
+
+			$('#background').on('click', function() {
 				UTILS.dialog.hideDialog();
 			});
 
