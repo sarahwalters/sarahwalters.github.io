@@ -1,4 +1,4 @@
-swalters4925.github.io
+sarahwalters.github.io
 ======================
 
 Portfolio
