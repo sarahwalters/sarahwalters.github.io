@@ -1,0 +1,14 @@
+Biomimetic Hopping Toy
+***
+Design Nature, Olin College, Fall 2013.
+<br><br>
+Designed and fabricated a hopping toy inspired by the lock-and-release energy storage mechanism found in click beetles.
+***
+side.jpg
+model.jpg
+prototype.jpg
+clickbeetles.jpg
+sketch.jpg
+***
+design
+***

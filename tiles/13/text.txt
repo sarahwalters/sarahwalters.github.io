@@ -1,0 +1,12 @@
+Brushed Motor
+***
+Women's Technology Program in EECS, Massachusetts Institute of Technology, Summer 2012.
+<br><br>
+Designed and fabricated a 3000 rpm motor using Plexiglas, magnets, and copper wire.
+***
+wtpMotor_1.jpg
+wtpMotor_2.jpg
+wtpMotor_3.jpg
+***
+design
+***

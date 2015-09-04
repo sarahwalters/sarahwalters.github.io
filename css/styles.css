@@ -173,7 +173,7 @@ html, body {
 	}
 
 /* BREAKPOINTS */
-@media only screen and (max-width:775px) { /* projects widh: 750 */
+@media only screen and (max-width:775px) { /* projects width: 750 */
 	.tile .title {
 		font-size: 20px;
 	}

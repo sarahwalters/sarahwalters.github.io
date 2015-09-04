@@ -1,8 +1,17 @@
-Olin Conductorless Orchestra
+Social Media Visualization
 ***
-Olin College, Fall 2013 - present. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis ultricies nibh a volutpat. Cras aliquet, turpis id viverra fringilla, felis arcu placerat lectus, vitae venenatis tellus nunc eget elit. Vestibulum vitae leo bibendum, euismod ligula a, pellentesque mi. Quisque in elit lectus. Sed pellentesque elementum nunc, non cursus tellus venenatis vel. Nullam ac faucibus arcu. Sed enim tellus, iaculis a nunc non, sodales fringilla elit. Morbi interdum lobortis ultrices. Nam fermentum lorem enim, a tincidunt est pellentesque at. Ut in interdum velit, vel malesuada est.
+Systems & Technology Research, Summer 2014. 
+<br><br>
+Collaborated with two other interns to design and implement a user-facing data visualization webapp for a DARPA contract using D3.js. Architected over 3500 lines of Javascript using agile development techniques and git version control.
+<br><br>
+Manipulated the existing Mongo database and Java back end in order to store additional data and provide it to the webapp.
+<br><br>
+Evaluated and tuned an experimental categorization algorithm implemented with Python scikit-learn.
 ***
-oco.jpg
+main.jpg
+groups.jpg
+graphs.jpg
 ***
-music
+design
+software
 ***

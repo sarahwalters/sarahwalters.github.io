@@ -1,11 +1,12 @@
-Project 11
+SmarterBoard
 ***
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis ultricies nibh a volutpat. Cras aliquet, turpis id viverra fringilla, felis arcu placerat lectus, vitae venenatis tellus nunc eget elit. Vestibulum vitae leo bibendum, euismod ligula a, pellentesque mi. Quisque in elit lectus. Sed pellentesque elementum nunc, non cursus tellus venenatis vel. Nullam ac faucibus arcu. Sed enim tellus, iaculis a nunc non, sodales fringilla elit. Morbi interdum lobortis ultrices. Nam fermentum lorem enim, a tincidunt est pellentesque at. Ut in interdum velit, vel malesuada est.
+Software Design, Olin College, Spring 2014.
+<br><br>
+We created proof-of-concept software which redraws images of simple hand-drawn circuit diagrams neatly and professionally for use in lab reports or presentations.
+<br><br>
+Our program located the darkest rows and columns, cropped around segments of the diagram by finding intersections between the main lines, and searched each segment for circuit components by identifying non-white space far above or below the center of each segment. We passed the circuit components into a classifier which passed each image through a slanted Gabor filter and generated a histogram of the resultant pixel brightnesses in order to predict whether the component was a resistor or a capacitor.
 ***
-sunrise.png
-portrait.png
-portrait2.png
+smarter-board-1.png
 ***
-design
-music
+software
 ***

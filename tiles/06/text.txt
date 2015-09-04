@@ -1,12 +1,10 @@
-Biomechanical Hopping Toy
+Mercury Orchestra
 ***
-Design Nature, Olin College, Fall 2013. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis ultricies nibh a volutpat. Cras aliquet, turpis id viverra fringilla, felis arcu placerat lectus, vitae venenatis tellus nunc eget elit. Vestibulum vitae leo bibendum, euismod ligula a, pellentesque mi. Quisque in elit lectus. Sed pellentesque elementum nunc, non cursus tellus venenatis vel. Nullam ac faucibus arcu. Sed enim tellus, iaculis a nunc non, sodales fringilla elit. Morbi interdum lobortis ultrices. Nam fermentum lorem enim, a tincidunt est pellentesque at. Ut in interdum velit, vel malesuada est.
+Second violinist, Summer 2015.
+<br><br>
+The Mercury Orchestra's mission is to bring great works of the symphony orchestra repertoire to Cambridge, Massachusetts, in live performances of the highest quality, to bring amateur orchestral musicians together in the Cambridge area to play challenging repertoire, and to educate new audiences about the rich traditions of classical music. The summer 2015 season included Bartok's Concerto for Orchestra, three works by Miklos Rozsa, the overture from Mozart's "The Magic Flute", Brahms' Symphony 3, and Beethoven's Piano Concerto No. 2 in B-Flat Major.
 ***
-side.jpg
-model.jpg
-prototype.jpg
-clickbeetles.jpg
-sketch.jpg
+mercury.png
 ***
-design
+music
 ***
