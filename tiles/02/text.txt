@@ -6,7 +6,7 @@ UOCD teaches user-oriented, collaborative approaches to design, seeking holistic
 <br><br>
 My team worked with street musicians in the Boston area. We learned that they feel like they are treated as beggars even though they are providing a service, that they're often looking to connect with their audiences even though the audiences disappear each time a train departs, and that many of them hope to use street performing as a springboard into a music career. Ultimately, we developed a product concept for an app which enables street musicians to communicate their preferred form of appreciation to their audiences.
 ***
-listener-list.png
+listener-list.jpg
 uocd-studio.jpg
 listener-profile.png
 performer-stats.png
