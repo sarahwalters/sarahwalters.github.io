@@ -1,4 +1,4 @@
-Poems Ipsum by Robot Frost
+Poems Ipsum
 ***
 Software Design, Olin College, Spring 2014; has now become a personal project.
 <br><br>
