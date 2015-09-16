@@ -61,7 +61,7 @@ html, body {
 		margin-left: auto;
 		margin-right: auto;
 	}
-		a {
+		#links a {
 			float: left;
 			margin-left: 5px;
 		}
