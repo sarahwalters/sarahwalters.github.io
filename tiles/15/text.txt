@@ -1,0 +1,19 @@
+Comparisons in Value Priority
+***
+Data Science, Olin College, Spring 2015. 
+<br><br>
+I used estimation of difference in mean and hypothesis testing to categorize the 21 items on the European Social Survey's Human Values Scale into the values that differentiate religions from each other, the values that differentiate religious from unaffiliated, and the values that do not appear to vary with religion. I found that, in general, religious people in Western Europe prioritize community-oriented values and deprioritize self-oriented values more than unaffiliated people do. However, both religious and unaffiliated groups in Western Europe exhibited similar opinions about how others should be treated.
+<br><br>
+ESS value scale questions associated with the graphs above:
+<br>
+imptrad: Tradition is important to her/him. She/he tries to follow the customs handed down by her/his religion or her/his family.
+<br>
+iphlppl: It’s very important to her/him to help the people around her/him. She/he wants to care for their well-being.
+<br><br>
+Read the full paper <a href="https://docs.google.com/document/d/1V2VPaFGxhR7tTTsnOt8mzvdF5apVi3OgLi2bOU6WQYE/edit?usp=sharing" target="_blank">here</a>.
+***
+imptrad_c_weight.jpg
+iphlppl_c_weight.jpg
+***
+software
+***
