@@ -70,6 +70,7 @@ var CONTENT = {
 			var tRender = $('#tileTemplate').render(t);
 			var shortestColIndex = colHeights.indexOf(Math.min.apply(null, colHeights));
 			$(UTILS.colIds[shortestColIndex]).append(tRender);
+			console.log(t.title + ': ' + $('#tile-'+t.id).height());
 			colHeights[shortestColIndex] += $('#tile-'+t.id).height();
 		});
 
