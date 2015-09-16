@@ -141,6 +141,7 @@ var UTILS = {
 
 			window.scrollTo(0,0);
 			var contentsHeight = $('#popup .title').outerHeight(true) +  // trues include margin in height
+								 $('#popup .subtitle').outerHeight(true) + 
 								 $('#popup .imgs').outerHeight(true) +
 								 $('#popup .txt').outerHeight(true);
 			if (contentsHeight > UTILS.dialog.fullHeight) {
