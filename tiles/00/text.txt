@@ -7,8 +7,8 @@ PianoBot uses 36 servo-actuated fingers to play a keyboard from PDF sheet music 
 I wrote the Python software which sends data over serial port to PianoBot's Arduino as well as the Arduino software which sends commands to the array of servos. Along the way, I encountered first Arduino's SRAM limit and then significant serial communication delay, both of which limited PianoBot's playing speed. I was able to make use of Arduino's EEPROM to resolve the issue, and the most current version of the Arduino software can send servo commands faster than the servos can respond.
 ***
 piano-poe-1.png
-piano-poe-2.png
-piano-poe-3.png
+piano-poe-2.jpg
+piano-poe-3.jpg
 ***
 design
 software
