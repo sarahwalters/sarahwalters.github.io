@@ -17,7 +17,7 @@ var CONTENT = {
 	makeTiles: function() {
 		if (window.location.protocol == 'http:') {
 			// make folder num ids
-			var lastTileNum = 16;
+			var lastTileNum = 17;
 			var nums = [];
 			for (var i=0; i<=lastTileNum; i++) {
 				var str = i+'';
