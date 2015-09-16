@@ -1,7 +1,7 @@
 Robotic Otter
 ***
 Design Nature, Olin College, Fall 2013.
-<br><br>
+***
 With a team of four, designed a robotic otter and an associated game. Presented the game to fourth-graders from a nearby elementary school at the end of the semester.
 ***
 otter.jpg

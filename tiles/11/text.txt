@@ -1,7 +1,7 @@
 SmarterBoard
 ***
 Software Design, Olin College, Spring 2014.
-<br><br>
+***
 We created proof-of-concept software which redraws images of simple hand-drawn circuit diagrams neatly and professionally for use in lab reports or presentations.
 <br><br>
 Our program located the darkest rows and columns, cropped around segments of the diagram by finding intersections between the main lines, and searched each segment for circuit components by identifying non-white space far above or below the center of each segment. We passed the circuit components into a classifier which passed each image through a slanted Gabor filter and generated a histogram of the resultant pixel brightnesses in order to predict whether the component was a resistor or a capacitor.

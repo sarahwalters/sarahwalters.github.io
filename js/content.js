@@ -6,6 +6,7 @@ var CONTENT = {
   		return {
   			id: id,
   			title: title,
+  			subtitle: 'Test subtitle, Olin College, Date',
   			img: img,
   			txt: txt,
   			extraImgs: extraImgs,
@@ -83,11 +84,12 @@ var CONTENT = {
 			// unpack data
 			var a = data.split('\n***\n');
 			var title = a[0]
-			var text = a[1]
-			var imgs = a[2].split('\n').map(function(img) {
+			var subtitle = a[1]
+			var text = a[2]
+			var imgs = a[3].split('\n').map(function(img) {
 				return 'tiles/'+num+'/'+img;
 			});
-			var tags = a[3].split('\n');
+			var tags = a[4].split('\n');
 
 			// make tile & add to list
 			var tile = CONTENT.tile(num, title, imgs[0], text, imgs.slice(1,imgs.length), tags)			

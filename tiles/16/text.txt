@@ -1,7 +1,7 @@
 Arduino Electrocardiogram
 ***
 Real World Measurements, Olin College, Spring 2014.
-<br><br>
+***
 Characterized a simple three-lead electrocardiogram circuit and transferred it to a PCB.
 ***
 pcb.jpg

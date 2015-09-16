@@ -1,7 +1,7 @@
 Aging Codesign
 ***
 Engineering for Humanity, Olin College, Spring 2014.
-<br><br>
+***
 Engineering for Humanity is an interdisplinary anthropology/engineering course which pairs teams of students with elderly members of the surrounding community. The teams use ethnographic methods to better understand the consequences of aging, then work closely with their community partners to design a prototype of a product which will improve the lives of the elderly. My team worked with a woman with arthritis who took great pride in living on her own and felt sentimentality for certain decorations and furnishings in her house. 
 <br><br>
 Our community partner's home is split-level, bedroom upstairs and washer and dryer downstairs; she can't carry a laundry basket in front of her, so she used to take her laundry downstairs by dragging the basket to the stairs with her cane and then pushing it down each half-flight, and she used to bring it back upstairs piece by piece. She helped us design a basket she would be able to carry -- it features a long shoulder strap (so she can distribute the weight across her body), two closures (so she can stand it vertically and drag it across the floor), and a flexible cloth-covered frame (so she can throw it down the stairs without fear of harming her entryway furnishings).
