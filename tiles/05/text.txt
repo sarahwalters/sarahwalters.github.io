@@ -4,7 +4,11 @@ Software Design, Olin College, Spring 2014; has now become a personal project.
 <br><br>
 Generated "lorem ipsum poetry" in Python by sourcing words from Project Gutenberg books, splitting them into phonetic syllables using the phoneme corpus associated with the Natural Language Toolkit (NLTK), then fitting them randomly to common rhythm and rhyme schemes, e.g. sonnet form and limerick form.
 <br><br>
-Later, transferred the poem generation to JavaScript, added a first-order Markov model (i.e. every pair of words occurs in the source text), and wrapped the software in a simple webapp -- prototype at <a href="http://poemipsum.herokuapp.com/" target="_blank">Poem Ipsum</a>, sourced on "A Tale of Two Cities" by Charles Dickens. The prototype is slow because the language processing takes so long; sometime this semester, I'm planning on a) memoizing the syllable generation and rhyme checking into a database and b) letting the user specify a Project Gutenberg link as a text source.
+<span>
+<span>Later, transferred the poem generation to JavaScript, added a first-order Markov model (i.e. every pair of words occurs in the source text), and wrapped the software in a simple webapp -- prototype at <\span>
+<a href="http://poemipsum.herokuapp.com/" target="_blank">Poem Ipsum</a>
+<span>, sourced on "A Tale of Two Cities" by Charles Dickens. The prototype is slow because the language processing takes so long; sometime this semester, I'm planning on a) memoizing the syllable generation and rhyme checking into a database and b) letting the user specify a Project Gutenberg link as a text source.</span>
+<\span>
 ***
 poemipsum3.png
 poemipsum2.png

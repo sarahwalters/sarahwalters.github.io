@@ -10,7 +10,11 @@ imptrad: Tradition is important to her/him. She/he tries to follow the customs h
 <br>
 iphlppl: It’s very important to her/him to help the people around her/him. She/he wants to care for their well-being.
 <br><br>
-Read the full paper <a href="https://docs.google.com/document/d/1V2VPaFGxhR7tTTsnOt8mzvdF5apVi3OgLi2bOU6WQYE/edit?usp=sharing" target="_blank">here</a>.
+<span>
+<span>Read the full paper </span>
+<a href="https://docs.google.com/document/d/1V2VPaFGxhR7tTTsnOt8mzvdF5apVi3OgLi2bOU6WQYE/edit?usp=sharing" target="_blank">here</a>
+<span>.</span>
+</span>
 ***
 imptrad_c_weight.jpg
 iphlppl_c_weight.jpg
