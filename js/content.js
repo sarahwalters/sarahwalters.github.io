@@ -2,11 +2,11 @@ var CONTENT = {
 	tiles: [],
 
 	// tile object
-	tile: function(id, title, img, txt, extraImgs, tags) {
+	tile: function(id, title, subtitle, img, txt, extraImgs, tags) {
   		return {
   			id: id,
   			title: title,
-  			subtitle: 'Test subtitle, Olin College, Date',
+  			subtitle: subtitle,
   			img: img,
   			txt: txt,
   			extraImgs: extraImgs,
@@ -92,7 +92,7 @@ var CONTENT = {
 			var tags = a[4].split('\n');
 
 			// make tile & add to list
-			var tile = CONTENT.tile(num, title, imgs[0], text, imgs.slice(1,imgs.length), tags)			
+			var tile = CONTENT.tile(num, title, subtitle, imgs[0], text, imgs.slice(1,imgs.length), tags)			
 			CONTENT.tiles.push(tile);
 
 			// update nums and recursively call back if it isn't empty
