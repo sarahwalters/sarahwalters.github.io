@@ -1,14 +1,12 @@
-Robotic Tugboat
+Arduino Electrocardiogram
 ***
-Robotics I, Olin College, Fall 2014. 
+Real World Measurements, Olin College, Spring 2014.
 <br><br>
-Wrote LabView code to maneuver a mechanized toy tugboat with a fiducial, a camera, and an array of infrared sensors around a pool. The boat follows walls and avoids objects usings its infrared sensors, and it docks using both the IR sensors and the onboard camera. The user can assign the boat missions from the LabView front panel, which the boat completes using simulated GPS (from a camera over the pool which tracks the fiducial) and fuzzy waypoint matching. Additionally, the boat can detect another boat in the pool, chase it, and "capture" it by colliding with it.
-<br><br>
-Watch a video demo of our boat maneuvering through the pool <a href="https://www.youtube.com/watch?v=q8WihIYCt_o" target="_blank">here</a>.
+Characterized a simple three-lead electrocardiogram circuit and transferred it to a PCB.
 ***
-robo1-1.png
-robo1-0.png
-robo1-boatview.png
+pcb.jpg
+setup.jpg
+circuit.jpg
 ***
-software
+design
 ***
