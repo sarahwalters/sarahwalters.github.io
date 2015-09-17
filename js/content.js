@@ -53,9 +53,9 @@ var CONTENT = {
   },
 
   // renders tile objects
-  drawTiles: function() {
+  drawTiles: function(tiles) {
     if (!CONTENT.tilesForDrawing) {
-      CONTENT.tilesForDrawing = CONTENT.tiles.slice(0); // copy so original CONTENT.tiles stays untouched
+      CONTENT.tilesForDrawing = tiles ? tiles : CONTENT.tiles.slice(0); // copy so original CONTENT.tiles stays untouched
 
       // clear columns & heights
       UTILS.colIds.map(function(colId) {
