@@ -62,7 +62,7 @@ var UTILS = {
 			$('#popup').width('95%');
 			UTILS.dialog.fullWidth = $('#popup').width();
 			var popupMargin = (UTILS.sizing.totalWidth - UTILS.dialog.fullWidth)/2;
-			$('#popup').css({'margin-left':popupMargin, 'margin-right':popupMargin});
+			$('#popup').css({'margin-left': popupMargin, 'margin-right': popupMargin, 'margin-top': 0});
 		},
 
 		// prepare to add images & trigger recursive adding
