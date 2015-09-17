@@ -1,5 +1,6 @@
 var CONTENT = {
 	tiles: [],
+	tilesForDrawing: null,
 
 	// tile object
 	tile: function(id, title, subtitle, img, txt, extraImgs, tags) {
@@ -53,29 +54,43 @@ var CONTENT = {
 	},
 
 	// renders tile objects
-	drawTiles: function(tiles) {
-		// if not specified, use all tiles; otherwise, use subset
-		if (tiles == undefined) {
-			tiles = CONTENT.tiles;
+	drawTiles: function() {
+		if (!CONTENT.tilesForDrawing) {
+			CONTENT.tilesForDrawing = CONTENT.tiles.slice(0); // copy so original CONTENT.tiles stays untouched
+
+			// clear columns & heights
+			UTILS.colIds.map(function(colId) {
+				$(colId).html('');
+			});
+			UTILS.colHeights = UTILS.colIds.map(function(colId) { return 0; });
 		}
 
-		// clear columns & heights
-		UTILS.colIds.map(function(colId) {
-			$(colId).html('');
-		});
-		var colHeights = UTILS.colIds.map(function(colId) { return 0; });
+		// Create the tile
+		var tile = CONTENT.tilesForDrawing.shift();
+		var tRender = $('#tileTemplate').render(tile);
 
-		// draw new tiles
-		tiles.map(function(t) {
-			var tRender = $('#tileTemplate').render(t);
-			var shortestColIndex = colHeights.indexOf(Math.min.apply(null, colHeights));
-			$(UTILS.colIds[shortestColIndex]).append(tRender);
-			console.log(t.title + ': ' + $('#tile-'+t.id).height());
-			colHeights[shortestColIndex] += $('#tile-'+t.id).height();
+		// Figure out where to put it
+		var shortestColIndex = UTILS.colHeights.indexOf(Math.min.apply(null, UTILS.colHeights));
+		$(UTILS.colIds[shortestColIndex]).append(tRender);
+		
+		// Wait for it to load
+		CONTENT.waitForLoad(tile, shortestColIndex);
+	},
+
+	waitForLoad: function(tile, colIndex) {
+		$('#tile-'+tile.id+' img').load(function() {
+			var newTileHeight = $('#tile-'+tile.id).height();
+			UTILS.colHeights[colIndex] += newTileHeight;
+
+			if (CONTENT.tilesForDrawing.length) {
+				CONTENT.drawTiles();
+			} else {
+				CONTENT.tilesForDrawing = null;
+				UTILS.dialog.initialize(); // once done rendering tiles, get dialog ready
+			}
 		});
 
-		// get dialog ready
-		UTILS.dialog.initialize();
+		
 	},
 
 	// makes tile objects from file

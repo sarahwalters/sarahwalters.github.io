@@ -1,5 +1,6 @@
 var UTILS = {
 	colIds: [],
+	colHeights: [],
 
 	// handles popup box
 	dialog: {
