@@ -35,6 +35,7 @@ $(document).ready(function() {
 });
 
 $(window).resize(function() {
+  CONTENT.tilesForDrawing = null;
   UTILS.sizing.landscapeResize();
   CONTENT.filterTiles();
 });
