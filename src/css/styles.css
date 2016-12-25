@@ -68,3 +68,13 @@ a {
         display: block;
     }
 }
+
+@media (max-width: 500px) {
+    body {
+        min-width: 0;
+    }
+
+    h2, h3 {
+        font-size: 1em;
+    }
+}
