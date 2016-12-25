@@ -1,12 +1,20 @@
 var LAYOUT = (function() {
 	function onload() {
-		// compute widths based on main width
+		var windowWidth = $("body").width();
 		var mainWidth = $('#main').width();
-		var leftWidth = 0.275 * mainWidth;
-		var rightWidth = mainWidth - leftWidth;
+		var leftWidth, rightWidth;
+
+		// compute widths based on page & main widths
+		// breakpoint at 1100 (photo on left vs. photo above)
+		if (windowWidth > 1100) {
+			leftWidth = 0.275 * mainWidth;
+			rightWidth = mainWidth - leftWidth;
+		} else {
+			leftWidth = 0.3 * windowWidth;
+			rightWidth = windowWidth;
+		}
 
 		// set widths
-		$("#main").width(mainWidth);
 		$("#me").width(leftWidth);
 		$("#left").width(leftWidth);
 		$("#right").width(rightWidth);
