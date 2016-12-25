@@ -1,0 +1,55 @@
+img#me {
+    border-radius: 50%;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: none;
+}
+
+div#main {
+    position: relative;
+    top: 40%;
+    transform: translateY(-40%);
+
+    width: 1000px;
+    margin: 0 auto;
+    align-items: top;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+h1, h2, h3 {
+    margin: 0 20px;
+}
+
+h1 {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-size: 5em;
+    font-family: "Poiret One", sans-serif;
+}
+
+h2 {
+    margin-top: 25px;
+    font-size: 1.6em;
+    font-family: "Rajdhani", sans-serif;
+}
+
+h3 {
+    font-family: "Rajdhani", sans-serif;
+    font-size: 1.6em;
+}
+
+.spaced {
+    word-spacing: 0.2em;
+}
+
+a {
+    color: #2A5DB0;
+}
