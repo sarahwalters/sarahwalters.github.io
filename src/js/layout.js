@@ -2,7 +2,7 @@ var LAYOUT = (function() {
 	function onload() {
 		// compute widths based on main width
 		var mainWidth = $('#main').width();
-		var leftWidth = 0.3 * mainWidth;
+		var leftWidth = 0.275 * mainWidth;
 		var rightWidth = mainWidth - leftWidth;
 
 		// set widths
